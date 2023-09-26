@@ -1,0 +1,133 @@
+1)Verilmiş 4 rəqəmli ədədin mərtəbələrinin cəmini (Məsələn: input 1234, output 10) tapan alqoritmi yazın.
+
+
+using System;
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("4 reqemli eded daxil edin: ");
+        int say = int.Parse(Console.ReadLine());
+
+        int birinciMertebe = say % 10;
+        int ikinciMertebe = (say / 10) % 10;
+        int ucuncuMertebe = (say / 100) % 10;
+        int dorduncuMertebe = (say / 1000) % 10;
+
+        int cem = birinciMertebe + ikinciMertebe + ucuncuMertebe + dorduncuMertebe;
+
+        Console.WriteLine("Mertebelerin cemi: " + cem);
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2.)Verilmiş 3 rəqəmli ədədin bütün mərtəbələrinin bir-birindən fərqli olub olmadığını tapan alqoritmi yazın
+(Məsələn: input 223, output "ferqli olmayan rəqəmlər var " (false) ).
+
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+         Console.WriteLine("3 Reqemli bir eded daxil edin: ");
+        int number = int.Parse(Console.ReadLine());
+
+        // Ədədin 3 rəqəmli olduğunu yoxlayaq
+        if (number >= 100 && number <= 999)
+        {
+            int Teklikler = number % 10;
+            int Onluqlar = (number / 10) % 10;
+            int Yüzlüklər = number / 100;
+
+            if (Teklikler != Onluqlar && Onluqlar != Yüzlüklər && Teklikler != Yüzlüklər)
+            {
+                Console.WriteLine("Bütün rəqəmlər bir birindən fərqlidir.");
+            }
+            else
+            {
+                Console.WriteLine("Ferqli olmayan reqemler var.");
+            }
+        }
+        
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+3)SERT-a və b tam ədəd dəyişənlərinin dəyərlərini dəyişdirən proqram yazın.
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        // "a" və "b" dəyişənlərinin təyinatı
+        int a = 5;
+        int b = 10;
+
+        Console.WriteLine("Evvel:");
+        Console.WriteLine("a = " + a);
+        Console.WriteLine("b = " + b);
+
+        
+        int temp = a; 
+        a = b; 
+        b = temp; 
+
+        Console.WriteLine("Sonra:");
+        Console.WriteLine("a = " + a);
+        Console.WriteLine("b = " + b);
+
+       
+        Console.ReadLine();
+
+
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4)Cinemaya gedən müştərilərin bilet qiymətini hesablayan proqram yazın. Biletin qiyməti müştərinin yaşından və tələbə biletinin olub-olmamasından asılıdır.
+Əgər müştərinin yaşı 12-dən aşağıdırsa (12 də daxildir) və ya 60-dan yuxarıdırsa (60 da daxildir), onlar üçün biletin qiyməti 5 manatdan hesablanır
+Əgər müştəri 13 və 59 yaş aralığındadırsa (13 və 59 da daxildir), tələbə kartı yoxdursa, bilet qiyməti standart olaraq 10 manatdan hesablanır.
+Əgər müştəri 13 və 59 yaş aralığındadırsa (13 və 59 da daxildir), tələbə kartı da varsa, tələbə endirimi qazandıqları üçün biletlər 7.5 manatdan hesablanır.
+
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Yaşınızı daxil edin: ");
+        int yas = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Tələbə kartınız varsa '1', yoxsa '0' daxil edin: ");
+        int telebeKarti = int.Parse(Console.ReadLine());
+
+        double biletyan;
+        
+        if ((yas <= 12 || yas >= 60))
+        {
+            biletyan = 5;
+        }
+        else if (yas >= 13 && yas <= 59)
+        {
+            if (telebeKarti == 1)
+            {
+                biletyan = 7.5;
+            }
+            else
+            {
+                biletyan = 10;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Yanlış yaş daxil etdiniz.");
+            return;
+        }
+
+        Console.WriteLine("Bilet qiyməti: " + biletyan + " manat");
+    }
+}
+
